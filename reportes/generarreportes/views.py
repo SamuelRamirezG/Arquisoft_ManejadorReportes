@@ -48,7 +48,7 @@ def generar_lista_correos (request):
          fecha = pago.fecha
          concepto = pago.nombre
 
-         send_email(correo,responsable,fecha,concepto)
+        # send_email(correo,responsable,fecha,concepto)
 
          correos.append(correo)
          pdf.drawString(100, y, f"Nombre: {responsable} Fecha: {correo} ")
