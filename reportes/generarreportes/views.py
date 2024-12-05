@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from reportes.logic import logic_cronogramas, logic_pagos
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
-from reportes.reportes import settings
+from reportes.settings import PATH_PAGOS
 from reportes.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
