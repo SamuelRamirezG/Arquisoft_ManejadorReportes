@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -137,3 +138,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'samuel.ramirez.gomez@gmail.com'
 EMAIL_HOST_PASSWORD = 'xlmj vqkj qrpi vafh'
+
+PATH_API_GATEWAY = "http://" + os.environ.get("KONG_HOST", "10.128.0.2") + ":" + os.environ.get("KONG_PORT", "8000")
+PATH_PAGOS = PATH_API_GATEWAY + "/facturacion/traerpagos"
