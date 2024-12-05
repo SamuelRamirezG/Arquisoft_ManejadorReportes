@@ -3,9 +3,12 @@ from django.http import HttpResponse
 from reportes.logic import logic_cronogramas, logic_pagos
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
+from reportes.reportes import settings
 from reportes.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
+import requests
+
 
 
 def home(request):
@@ -28,7 +31,7 @@ def generar_lista_correos (request):
       
       cronograma = logic_cronogramas.traerCronograma(anioCronograma, nombreCronograma)
       params = {"cronograma_id":cronograma.id}
-      pagos = requests.get(settings.PATH_PAGOS,headers=¨´{"Accept":"application/json"},params=params)
+      pagos = requests.get(settings.PATH_PAGOS,headers={"Accept":"application/json"},params=params)
       correos = []
      
       response = HttpResponse(content_type='application/pdf')
