@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.home),
     path('cronograma/', views.generar_lista_correos, name='generar_lista_correos'),
-    path('', views.formulario_view, name='formulario_view'),
+    path(r'^notificaciones/', views.formulario_view, name='formulario_view'),
     path('health/', v.health_check, name='health')
 
 ]
