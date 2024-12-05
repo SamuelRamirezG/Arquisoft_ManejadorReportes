@@ -27,7 +27,8 @@ def generar_lista_correos (request):
       fecha_pago = request.GET.get('fecha_pago', '2024-01-01')
       
       cronograma = logic_cronogramas.traerCronograma(anioCronograma, nombreCronograma)
-      pagos = logic_pagos.traerPagos(cronograma.id, fecha_pago)
+      params = {"cronograma_id":cronograma.id}
+      pagos = requests.get(settings.PATH_PAGOS,headers=¨´{"Accept":"application/json"},params=params)
       correos = []
      
       response = HttpResponse(content_type='application/pdf')
